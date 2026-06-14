@@ -1,0 +1,105 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 213 55% 11%;
+    --foreground: 0 0% 100%;
+    --card: 213 55% 11%;
+    --card-foreground: 0 0% 100%;
+    --popover: 213 55% 11%;
+    --popover-foreground: 0 0% 100%;
+    --primary: 220 100% 50%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 187 100% 50%;
+    --secondary-foreground: 0 0% 0%;
+    --muted: 213 40% 18%;
+    --muted-foreground: 213 20% 65%;
+    --accent: 50 100% 50%;
+    --accent-foreground: 0 0% 0%;
+    --destructive: 348 83% 47%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 213 30% 22%;
+    --input: 213 30% 22%;
+    --ring: 220 100% 50%;
+    --radius: 0.75rem;
+  }
+
+  body {
+    @apply bg-[#0B1A2E] text-white antialiased;
+    font-family: 'IBM Plex Sans Arabic', 'Inter', sans-serif;
+    overflow-x: hidden;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  ::selection {
+    background: rgba(0, 85, 255, 0.3);
+    color: white;
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply bg-[rgba(11,26,46,0.4)] backdrop-blur-xl border border-[rgba(255,255,255,0.08)];
+  }
+
+  .glow-blue {
+    box-shadow: 0px 10px 40px rgba(0, 85, 255, 0.15);
+  }
+
+  .glow-blue-strong {
+    box-shadow: 0px 10px 60px rgba(0, 85, 255, 0.4);
+  }
+
+  .text-shadow-hero {
+    text-shadow: 0 4px 24px rgba(0, 0, 0, 0.8);
+  }
+
+  .gradient-text {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-[#0055FF] to-[#00E5FF];
+  }
+
+  .btn-primary {
+    @apply bg-[#0055FF] hover:bg-[#0044CC] text-white font-semibold px-8 py-4 rounded-full transition-all duration-300;
+  }
+
+  .btn-whatsapp {
+    @apply bg-[#25D366] hover:bg-[#1DA851] text-white font-semibold px-8 py-4 rounded-full transition-all duration-300;
+  }
+}
+
+@layer utilities {
+  .animate-pulse-slow {
+    animation: pulse-slow 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+}
+
+@keyframes pulse-slow {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
