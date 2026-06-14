@@ -1,5 +1,23 @@
 import { Phone, Mail, MapPin } from 'lucide-react';
 
+// Google Ads Conversion Tracking for Phone Calls
+function gtag_report_conversion(url?: string) {
+  const callback = function () {
+    if (typeof url !== 'undefined') {
+      window.location.href = url;
+    }
+  };
+  if (typeof window !== 'undefined' && (window as any).gtag) {
+    (window as any).gtag('event', 'conversion', {
+      'send_to': 'AW-18237596537/ehTyCJnpzL4cEPnGrvhD',
+      'value': 1.0,
+      'currency': 'EGP',
+      'event_callback': callback
+    });
+  }
+  return false;
+}
+
 /**
  * Footer Component - Luxury Minimalist
  * Design: Clean footer with contact info and links
@@ -100,6 +118,7 @@ export default function Footer() {
                 <Phone size={18} className="text-accent flex-shrink-0 mt-0.5" />
                 <a
                   href="tel:+966501401518"
+                  onClick={() => gtag_report_conversion('tel:+966501401518')}
                   className="text-foreground/70 hover:text-accent transition-colors"
                 >
                   +966 50 140 1518
@@ -148,6 +167,7 @@ export default function Footer() {
             </a>
             <a
               href="tel:+966501401518"
+              onClick={() => gtag_report_conversion('tel:+966501401518')}
               className="text-foreground/60 hover:text-accent transition-colors"
               aria-label="Phone"
             >

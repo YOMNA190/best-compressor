@@ -1,5 +1,23 @@
 import { Phone, MessageCircle } from 'lucide-react';
 
+// Google Ads Conversion Tracking for Phone Calls
+function gtag_report_conversion(url?: string) {
+  const callback = function () {
+    if (typeof url !== 'undefined') {
+      window.location.href = url;
+    }
+  };
+  if (typeof window !== 'undefined' && (window as any).gtag) {
+    (window as any).gtag('event', 'conversion', {
+      'send_to': 'AW-18237596537/ehTyCJnpzL4cEPnGrvhD',
+      'value': 1.0,
+      'currency': 'EGP',
+      'event_callback': callback
+    });
+  }
+  return false;
+}
+
 /**
  * Final CTA Section - Luxury Minimalist
  * Design: High-converting call-to-action with premium styling
@@ -27,6 +45,7 @@ export default function FinalCTA() {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-6 mb-12">
             <a
               href="tel:+966501401518"
+              onClick={() => gtag_report_conversion('tel:+966501401518')}
               className="flex items-center gap-3 px-10 py-5 bg-accent text-accent-foreground font-bold rounded-lg hover:shadow-2xl hover:shadow-accent/60 active:scale-95 transition-all duration-300 text-lg w-full sm:w-auto justify-center animate-goldGlow"
             >
               <Phone size={28} />

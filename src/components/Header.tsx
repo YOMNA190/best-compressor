@@ -1,6 +1,24 @@
 import { useState } from 'react';
 import { Menu, X, Phone } from 'lucide-react';
 
+// Google Ads Conversion Tracking for Phone Calls
+function gtag_report_conversion(url?: string) {
+  const callback = function () {
+    if (typeof url !== 'undefined') {
+      window.location.href = url;
+    }
+  };
+  if (typeof window !== 'undefined' && (window as any).gtag) {
+    (window as any).gtag('event', 'conversion', {
+      'send_to': 'AW-18237596537/ehTyCJnpzL4cEPnGrvhD',
+      'value': 1.0,
+      'currency': 'EGP',
+      'event_callback': callback
+    });
+  }
+  return false;
+}
+
 /**
  * Header Component - Luxury Minimalist
  * Design: Clean navigation with gold accents, sticky positioning
@@ -58,6 +76,7 @@ export default function Header() {
           <div className="flex items-center gap-4">
             <a
               href="tel:+966501401518"
+              onClick={() => gtag_report_conversion('tel:+966501401518')}
               className="hidden sm:flex items-center gap-2 px-6 py-2 bg-accent text-accent-foreground rounded-lg font-semibold hover:shadow-lg hover:shadow-accent/50 transition-all duration-300 text-sm"
             >
               <Phone size={16} />
@@ -95,6 +114,7 @@ export default function Header() {
               ))}
               <a
                 href="tel:+966501401518"
+                onClick={() => gtag_report_conversion('tel:+966501401518')}
                 className="px-4 py-2 bg-accent text-accent-foreground rounded-lg font-semibold hover:shadow-lg transition-all mt-2"
               >
                 اتصل الآن

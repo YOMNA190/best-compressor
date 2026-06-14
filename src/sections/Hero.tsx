@@ -1,6 +1,24 @@
 import { Phone, MessageCircle, CheckCircle } from 'lucide-react';
 import { useEffect, useRef } from 'react';
 
+// Google Ads Conversion Tracking for Phone Calls
+function gtag_report_conversion(url?: string) {
+  const callback = function () {
+    if (typeof url !== 'undefined') {
+      window.location.href = url;
+    }
+  };
+  if (typeof window !== 'undefined' && (window as any).gtag) {
+    (window as any).gtag('event', 'conversion', {
+      'send_to': 'AW-18237596537/ehTyCJnpzL4cEPnGrvhD',
+      'value': 1.0,
+      'currency': 'EGP',
+      'event_callback': callback
+    });
+  }
+  return false;
+}
+
 /**
  * Hero Section - Luxury Minimalist
  * Design: Cinematic background image with bold typography overlay
@@ -80,6 +98,7 @@ export default function Hero() {
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
           <a
             href="tel:+966501401518"
+            onClick={() => gtag_report_conversion('tel:+966501401518')}
             className="flex items-center gap-3 px-8 py-4 bg-accent text-accent-foreground font-bold rounded-lg hover:shadow-xl hover:shadow-accent/50 active:scale-95 transition-all duration-300 text-lg w-full sm:w-auto justify-center"
           >
             <Phone size={24} />
