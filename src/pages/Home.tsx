@@ -1,20 +1,25 @@
-import { useState } from 'react'
-import '../App.css'
+import { Button } from "@/components/ui/button";
+import { Loader2 } from "lucide-react";
+import { Streamdown } from 'streamdown';
 
+/**
+ * All content in this page are only for example, replace with your own feature implementation
+ * When building pages, remember your instructions in Frontend Best Practices, Design Guide and Common Pitfalls
+ */
 export default function Home() {
-  const [count, setCount] = useState(0)
+  // If theme is switchable in App.tsx, we can implement theme toggling like this:
+  // const { theme, toggleTheme } = useTheme();
 
   return (
-    <>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-    </>
-  )
+    <div className="min-h-screen flex flex-col">
+      <main>
+        {/* Example: lucide-react for icons */}
+        <Loader2 className="animate-spin" />
+        Example Page
+        {/* Example: Streamdown for markdown rendering */}
+        <Streamdown>Any **markdown** content</Streamdown>
+        <Button variant="default">Example Button</Button>
+      </main>
+    </div>
+  );
 }

@@ -1,68 +1,107 @@
-import { useEffect, useState } from 'react';
-import { Phone, MessageCircle } from 'lucide-react';
+import { useState } from 'react';
+import { Menu, X, Phone } from 'lucide-react';
 
+/**
+ * Header Component - Luxury Minimalist
+ * Design: Clean navigation with gold accents, sticky positioning
+ * RTL: Full right-to-left support for Arabic
+ */
 export default function Header() {
-  const [scrolled, setScrolled] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
-    };
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  const navItems = [
+    { label: 'الرئيسية', href: '#hero' },
+    { label: 'الخدمات', href: '#services' },
+    { label: 'لماذا نحن', href: '#why-us' },
+    { label: 'التقييمات', href: '#reviews' },
+    { label: 'الأسئلة الشائعة', href: '#faq' },
+  ];
 
   return (
-    <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        scrolled
-          ? 'bg-[#0B1A2E]/90 backdrop-blur-xl shadow-lg'
-          : 'bg-transparent'
-      }`}
-      style={{ height: '80px' }}
-    >
-      <div className="h-full max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-between">
-        {/* Brand */}
-        <div className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#0055FF] to-[#00E5FF] flex items-center justify-center">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z" fill="white"/>
-            </svg>
+    <header className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-md border-b border-accent/20">
+      <div className="container mx-auto px-4">
+        <div className="flex items-center justify-between h-20">
+          {/* Logo */}
+          <div className="flex items-center gap-3">
+            <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-accent to-accent/60 flex items-center justify-center">
+              <svg
+                viewBox="0 0 100 100"
+                className="w-8 h-8 text-background"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+              >
+                <circle cx="50" cy="50" r="35" />
+                <path d="M 30 50 Q 50 35 70 50" />
+              </svg>
+            </div>
+            <div className="hidden sm:block">
+              <h1 className="text-xl font-bold text-foreground">Best Compressor</h1>
+              <p className="text-xs text-muted-foreground">خدمة تسليك مجاري فاخرة</p>
+            </div>
           </div>
-          <div className="flex flex-col">
-            <span className="text-white font-bold text-lg leading-tight">كمبروسر الرياض</span>
-            <span className="text-[#00E5FF] text-xs font-medium">Kompressor Riyadh</span>
+
+          {/* Desktop Navigation */}
+          <nav className="hidden md:flex items-center gap-8">
+            {navItems.map((item) => (
+              <a
+                key={item.label}
+                href={item.href}
+                className="text-foreground/80 hover:text-accent transition-colors duration-300 text-sm font-medium"
+              >
+                {item.label}
+              </a>
+            ))}
+          </nav>
+
+          {/* CTA Button */}
+          <div className="flex items-center gap-4">
+            <a
+              href="tel:+966501401518"
+              className="hidden sm:flex items-center gap-2 px-6 py-2 bg-accent text-accent-foreground rounded-lg font-semibold hover:shadow-lg hover:shadow-accent/50 transition-all duration-300 text-sm"
+            >
+              <Phone size={16} />
+              <span>اتصل الآن</span>
+            </a>
+
+            {/* Mobile Menu Button */}
+            <button
+              onClick={() => setIsOpen(!isOpen)}
+              className="md:hidden p-2 hover:bg-accent/10 rounded-lg transition-colors"
+              aria-label="Toggle menu"
+            >
+              {isOpen ? (
+                <X size={24} className="text-accent" />
+              ) : (
+                <Menu size={24} className="text-foreground" />
+              )}
+            </button>
           </div>
         </div>
 
-        {/* Center Badge */}
-        <div className="hidden md:flex items-center gap-2 glass-card rounded-full px-4 py-2">
-          <span className="relative flex h-3 w-3">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#DC143C] opacity-75"></span>
-            <span className="relative inline-flex rounded-full h-3 w-3 bg-[#DC143C]"></span>
-          </span>
-          <span className="text-white text-sm font-semibold">فني متاح الآن</span>
-        </div>
-
-        {/* Actions */}
-        <div className="flex items-center gap-3">
-          <a
-            href="tel:+966501401518"
-            className="hidden sm:flex items-center gap-2 bg-[#0055FF] hover:bg-[#0044CC] text-white font-semibold px-5 py-2.5 rounded-full transition-all duration-300 text-sm"
-          >
-            <Phone size={16} />
-            <span>اتصل الآن</span>
-          </a>
-          <a
-            href="https://wa.me/966501401518"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-2 bg-[#25D366] hover:bg-[#1DA851] text-white font-semibold px-5 py-2.5 rounded-full transition-all duration-300 text-sm"
-          >
-            <MessageCircle size={16} />
-            <span className="hidden sm:inline">واتساب</span>
-          </a>
-        </div>
+        {/* Mobile Navigation */}
+        {isOpen && (
+          <nav className="md:hidden pb-4 border-t border-accent/20">
+            <div className="flex flex-col gap-2 py-4">
+              {navItems.map((item) => (
+                <a
+                  key={item.label}
+                  href={item.href}
+                  onClick={() => setIsOpen(false)}
+                  className="px-4 py-2 text-foreground/80 hover:text-accent hover:bg-accent/10 rounded-lg transition-colors"
+                >
+                  {item.label}
+                </a>
+              ))}
+              <a
+                href="tel:+966501401518"
+                className="px-4 py-2 bg-accent text-accent-foreground rounded-lg font-semibold hover:shadow-lg transition-all mt-2"
+              >
+                اتصل الآن
+              </a>
+            </div>
+          </nav>
+        )}
       </div>
     </header>
   );

@@ -1,122 +1,117 @@
-import { useRef, useEffect, useState } from 'react';
-import { Phone, MessageCircle, Star, Shield, Clock, Award } from 'lucide-react';
-import FluidTunnel from '../components/FluidTunnel';
-import gsap from 'gsap';
+import { Phone, MessageCircle, CheckCircle } from 'lucide-react';
+import { useEffect, useRef } from 'react';
 
-interface HeroProps {
-  scrollSpeed: number;
-}
-
-export default function Hero({ scrollSpeed }: HeroProps) {
-  const contentRef = useRef<HTMLDivElement>(null);
-  const [isLoaded, setIsLoaded] = useState(false);
+/**
+ * Hero Section - Luxury Minimalist
+ * Design: Cinematic background image with bold typography overlay
+ * Features: Premium CTAs with gold accents, trust indicators
+ * RTL: Full Arabic support with proper text alignment
+ */
+export default function Hero() {
+  const sectionRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    setIsLoaded(true);
-    if (!contentRef.current) return;
-    const ctx = gsap.context(() => {
-      gsap.fromTo(
-        '.hero-title',
-        { opacity: 0, y: 60 },
-        { opacity: 1, y: 0, duration: 1.2, ease: 'power3.out', delay: 0.3 }
-      );
-      gsap.fromTo(
-        '.hero-subtitle',
-        { opacity: 0, y: 40 },
-        { opacity: 1, y: 0, duration: 1, ease: 'power3.out', delay: 0.6 }
-      );
-      gsap.fromTo(
-        '.hero-ctas',
-        { opacity: 0, y: 30 },
-        { opacity: 1, y: 0, duration: 0.8, ease: 'power3.out', delay: 0.9 }
-      );
-      gsap.fromTo(
-        '.hero-trust',
-        { opacity: 0, y: 20 },
-        { opacity: 1, y: 0, duration: 0.8, ease: 'power3.out', delay: 1.2 }
-      );
-    }, contentRef);
-    return () => ctx.revert();
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate-fadeInUp');
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => observer.disconnect();
   }, []);
 
   const trustItems = [
-    { icon: Star, label: 'تقييمات ممتازة' },
-    { icon: Award, label: 'أكثر من 15 سنة خبرة' },
-    { icon: Shield, label: 'ضمان على الخدمة' },
-    { icon: Clock, label: 'خدمة طوارئ 24 ساعة' },
+    { icon: '✓', label: '+10,000 عميل راضي' },
+    { icon: '✓', label: 'خدمة 24 ساعة' },
+    { icon: '✓', label: 'ضمان على العمل' },
+    { icon: '✓', label: 'خبرة 15+ سنة' },
   ];
 
   return (
-    <section id="hero" className="relative min-h-screen w-full flex items-center justify-center overflow-hidden">
-      {/* WebGL Background */}
-      <FluidTunnel scrollSpeed={scrollSpeed} />
-
-      {/* Content Overlay */}
+    <section
+      id="hero"
+      ref={sectionRef}
+      className="relative min-h-screen w-full flex items-center justify-center overflow-hidden pt-20"
+    >
+      {/* Background Image with Overlay */}
       <div
-        ref={contentRef}
-        className={`relative z-10 max-w-5xl mx-auto px-4 sm:px-6 text-center transition-opacity duration-1000 ${
-          isLoaded ? 'opacity-100' : 'opacity-0'
-        }`}
-      >
+        className="absolute inset-0 z-0"
+        style={{
+          backgroundImage: `url('https://d2xsxph8kpxj0f.cloudfront.net/310519663594372769/RXekFWzqRZqREtUzHxtuDw/hero-compressor-industrial-eAkCszTww7RtDaBFMHRkiY.webp')`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundAttachment: 'fixed',
+        }}
+      />
+
+      {/* Dark Overlay for Text Contrast */}
+      <div className="absolute inset-0 z-1 bg-gradient-to-b from-background/70 via-background/50 to-background" />
+
+      {/* Content */}
+      <div className="relative z-10 container mx-auto px-4 py-32 text-center">
         {/* Badge */}
-        <div className="hero-subtitle inline-flex items-center gap-2 glass-card rounded-full px-5 py-2 mb-8">
-          <span className="relative flex h-2.5 w-2.5">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#DC143C] opacity-75"></span>
-            <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#DC143C]"></span>
-          </span>
-          <span className="text-[#00E5FF] text-sm font-semibold">خدمة طوارئ 24 ساعة في الرياض</span>
+        <div className="inline-flex items-center gap-2 mb-8 px-6 py-3 bg-accent/10 border border-accent/30 rounded-full">
+          <div className="w-2 h-2 bg-accent rounded-full animate-pulse" />
+          <span className="text-accent font-semibold text-sm">خدمة طوارئ متاحة الآن</span>
         </div>
 
-        {/* Title */}
-        <h1 className="hero-title text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 text-shadow-hero leading-tight">
-          تسليك مجاري الرياض
+        {/* Main Headline */}
+        <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-foreground mb-6 leading-tight">
+          تسليك مجاري
           <br />
-          <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#0055FF] via-[#00E5FF] to-[#0055FF]">
-            بالكمبروسر
-          </span>
+          <span className="luxury-text-gradient">بدقة هندسية</span>
         </h1>
 
         {/* Subtitle */}
-        <p className="hero-subtitle text-lg sm:text-xl text-white/80 mb-10 max-w-3xl mx-auto leading-relaxed">
-          وصول سريع · خدمة 24 ساعة · ضمان على العمل · خبرة أكثر من 15 سنة
+        <p className="text-xl md:text-2xl text-foreground/80 mb-12 max-w-3xl mx-auto leading-relaxed">
+          خدمة تسليك مجاري احترافية بأحدث التقنيات والكمبروسر المتطور
+          <br className="hidden md:block" />
+          في الرياض والدمام مع ضمان كامل على العمل
         </p>
 
         {/* CTAs */}
-        <div className="hero-ctas flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
           <a
             href="tel:+966501401518"
-            className="flex items-center gap-3 bg-[#0055FF] hover:bg-[#0044CC] text-white font-bold px-8 py-4 rounded-full transition-all duration-300 text-lg glow-blue-strong hover:scale-105"
+            className="flex items-center gap-3 px-8 py-4 bg-accent text-accent-foreground font-bold rounded-lg hover:shadow-xl hover:shadow-accent/50 active:scale-95 transition-all duration-300 text-lg w-full sm:w-auto justify-center"
           >
-            <Phone size={22} />
+            <Phone size={24} />
             <span>اتصل الآن</span>
           </a>
           <a
             href="https://wa.me/966501401518"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-3 bg-[#25D366] hover:bg-[#1DA851] text-white font-bold px-8 py-4 rounded-full transition-all duration-300 text-lg hover:scale-105"
+            className="flex items-center gap-3 px-8 py-4 border-2 border-accent text-accent font-bold rounded-lg hover:bg-accent/10 active:scale-95 transition-all duration-300 text-lg w-full sm:w-auto justify-center"
           >
-            <MessageCircle size={22} />
+            <MessageCircle size={24} />
             <span>واتساب</span>
           </a>
         </div>
 
         {/* Trust Indicators */}
-        <div className="hero-trust grid grid-cols-2 md:grid-cols-4 gap-4 max-w-3xl mx-auto">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
           {trustItems.map((item, idx) => (
             <div
               key={idx}
-              className="flex items-center gap-2 glass-card rounded-xl px-4 py-3"
+              className="flex items-center gap-3 p-4 bg-background/50 border border-accent/20 rounded-lg hover:border-accent/50 transition-all duration-300"
             >
-              <item.icon size={18} className="text-[#00E5FF] flex-shrink-0" />
-              <span className="text-white/90 text-sm font-medium">{item.label}</span>
+              <CheckCircle size={20} className="text-accent flex-shrink-0" />
+              <span className="text-foreground/90 text-sm font-medium">{item.label}</span>
             </div>
           ))}
         </div>
       </div>
 
       {/* Bottom Gradient Fade */}
-      <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-[#0B1A2E] to-transparent z-10 pointer-events-none" />
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent z-10 pointer-events-none" />
     </section>
   );
 }

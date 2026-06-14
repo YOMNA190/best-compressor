@@ -1,93 +1,72 @@
-import { useRef, useEffect } from 'react';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { Phone, MessageCircle, MapPin, Clock } from 'lucide-react';
+import { Phone, MessageCircle } from 'lucide-react';
 
-gsap.registerPlugin(ScrollTrigger);
-
+/**
+ * Final CTA Section - Luxury Minimalist
+ * Design: High-converting call-to-action with premium styling
+ * Features: Prominent contact buttons with gold accents
+ */
 export default function FinalCTA() {
-  const sectionRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    if (!sectionRef.current) return;
-    const ctx = gsap.context(() => {
-      gsap.fromTo(
-        '.finalcta-content',
-        { opacity: 0, y: 60 },
-        {
-          opacity: 1, y: 0, duration: 1.2, ease: 'power3.out',
-          scrollTrigger: { trigger: sectionRef.current, start: 'top 70%' },
-        }
-      );
-    }, sectionRef);
-    return () => ctx.revert();
-  }, []);
-
   return (
-    <section ref={sectionRef} id="contact" className="relative py-24 md:py-32 overflow-hidden">
-      {/* Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-[#0055FF] via-[#0044CC] to-[#0B1A2E]" />
-      
-      {/* Pattern */}
-      <div className="absolute inset-0 opacity-10">
-        <svg width="100%" height="100%">
-          <defs>
-            <pattern id="grid" width="60" height="60" patternUnits="userSpaceOnUse">
-              <path d="M 60 0 L 0 0 0 60" fill="none" stroke="white" strokeWidth="0.5" />
-            </pattern>
-          </defs>
-          <rect width="100%" height="100%" fill="url(#grid)" />
-        </svg>
-      </div>
-
-      <div className="relative max-w-4xl mx-auto px-4 sm:px-6 text-center">
-        <div className="finalcta-content">
-          <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-5 py-2 mb-8">
-            <Clock size={16} className="text-[#00E5FF]" />
-            <span className="text-white text-sm font-semibold">متاحون الآن - 24 ساعة</span>
-          </div>
-
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
-            هل تحتاج خدمة تسليك مجاري
-            <br />
-            <span className="text-[#00E5FF]">بالكمبروسر الآن؟</span>
+    <section className="luxury-section bg-gradient-to-b from-background to-card">
+      <div className="container mx-auto">
+        <div className="max-w-3xl mx-auto text-center">
+          {/* Main Headline */}
+          <h2 className="luxury-title mb-6">
+            هل أنت مستعد للحصول على خدمة احترافية؟
           </h2>
 
-          <p className="text-white/80 text-lg sm:text-xl mb-10 max-w-2xl mx-auto">
-            فريقنا جاهز لخدمتك 24 ساعة في جميع أنحاء الرياض. وصول سريع، خدمة احترافية، ضمان على العمل.
+          {/* Divider */}
+          <div className="luxury-divider mb-8" />
+
+          {/* Subtitle */}
+          <p className="text-xl md:text-2xl text-foreground/80 mb-12 leading-relaxed">
+            تواصل معنا الآن واحصل على استشارة مجانية وتقدير سعر دقيق
           </p>
 
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
+          {/* CTA Buttons */}
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-6 mb-12">
             <a
               href="tel:+966501401518"
-              className="flex items-center gap-3 bg-white text-[#0055FF] hover:bg-white/90 font-bold px-10 py-5 rounded-full transition-all duration-300 text-lg hover:scale-105 shadow-xl"
+              className="flex items-center gap-3 px-10 py-5 bg-accent text-accent-foreground font-bold rounded-lg hover:shadow-2xl hover:shadow-accent/60 active:scale-95 transition-all duration-300 text-lg w-full sm:w-auto justify-center animate-goldGlow"
             >
-              <Phone size={24} />
-              <span>اتصل فوراً</span>
+              <Phone size={28} />
+              <span>اتصل الآن: +966 50 140 1518</span>
             </a>
             <a
               href="https://wa.me/966501401518"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-3 bg-[#25D366] hover:bg-[#1DA851] text-white font-bold px-10 py-5 rounded-full transition-all duration-300 text-lg hover:scale-105 shadow-xl"
+              className="flex items-center gap-3 px-10 py-5 border-2 border-accent text-accent font-bold rounded-lg hover:bg-accent/10 active:scale-95 transition-all duration-300 text-lg w-full sm:w-auto justify-center"
             >
-              <MessageCircle size={24} />
-              <span>راسلنا واتساب</span>
+              <MessageCircle size={28} />
+              <span>واتساب مباشر</span>
             </a>
           </div>
 
-          <div className="flex flex-wrap items-center justify-center gap-6 text-white/70 text-sm">
-            <div className="flex items-center gap-2">
-              <MapPin size={16} className="text-[#00E5FF]" />
-              <span>جميع أحياء الرياض</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <Phone size={16} className="text-[#00E5FF]" />
-              <span dir="ltr">+966 50 140 1518</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <Clock size={16} className="text-[#00E5FF]" />
-              <span>24/7 خدمة مستمرة</span>
+          {/* Trust Message */}
+          <div className="p-8 bg-card rounded-lg luxury-border">
+            <p className="text-foreground/80 text-lg">
+              ✓ استجابة فورية <span className="text-accent font-bold">خلال 5 دقائق</span>
+              <br />
+              ✓ استشارة مجانية وتقدير سعر دقيق
+              <br />
+              ✓ فريق متخصص وموثوق
+            </p>
+          </div>
+
+          {/* Service Areas */}
+          <div className="mt-12">
+            <p className="text-foreground/70 mb-4">متوفرون في:</p>
+            <div className="flex flex-wrap items-center justify-center gap-4">
+              <span className="px-6 py-2 bg-accent/10 border border-accent/30 rounded-full text-accent font-semibold">
+                الرياض
+              </span>
+              <span className="px-6 py-2 bg-accent/10 border border-accent/30 rounded-full text-accent font-semibold">
+                الدمام
+              </span>
+              <span className="px-6 py-2 bg-accent/10 border border-accent/30 rounded-full text-accent font-semibold">
+                والمناطق المحيطة
+              </span>
             </div>
           </div>
         </div>
