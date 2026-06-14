@@ -19,30 +19,30 @@
     <link rel="manifest" href="/manifest.json" />
     
     <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18201263866"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18237596537"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-      gtag('config', 'AW-18201263866');
+      gtag('config', 'AW-18237596537');
     </script>
     
-    <!-- Event snippet for جهة اتصال conversion page In your html page, add the snippet and call gtag_report_conversion when someone clicks on the chosen link or button. -->
+    <!-- Event snippet for Phone call conversion page -->
     <script>
-      function gtag_report_conversion(url) {
-        var callback = function () {
-          if (typeof(url) != 'undefined') {
-            window.location = url;
-          }
-        };
-        gtag('event', 'conversion', {
-          'send_to': 'AW-18201263866/rE7BCImE6rYcEPr9hOdD',
+    function gtag_report_conversion(url) {
+      var callback = function () {
+        if (typeof(url) != 'undefined') {
+          window.location = url;
+        }
+      };
+      gtag('event', 'conversion', {
+          'send_to': 'AW-18237596537/ehTyCJnpzL4cEPnGrvhD',
           'value': 1.0,
           'currency': 'EGP',
           'event_callback': callback
-        });
-        return false;
-      }
+      });
+      return false;
+    }
     </script>
 
     <!-- Open Graph -->
