@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+// HeroVideoBackground component
 
 /**
  * Hero Video Background
@@ -15,9 +15,6 @@ const videoSrc = '/videos/hero.mp4'; // ← ضعي مسار الفيديو هن�
 const fallbackImage = '/images/hero-technician.jpg';
 
 export default function HeroVideoBackground() {
-  const videoRef = useRef<HTMLVideoElement>(null);
-  const [videoFailed, setVideoFailed] = useState(false);
-
   return (
     <div
       style={{
@@ -28,6 +25,7 @@ export default function HeroVideoBackground() {
         height: '100%',
         zIndex: 0,
         overflow: 'hidden',
+        backgroundColor: '#0F172A', // Dark navy background
       }}
     >
       {/* Dark overlay */}
@@ -40,42 +38,21 @@ export default function HeroVideoBackground() {
         }}
       />
 
-      {/* Video */}
-      {!videoFailed ? (
-        <video
-          ref={videoRef}
-          autoPlay
-          muted
-          loop
-          playsInline
-          onError={() => setVideoFailed(true)}
-          style={{
-            position: 'absolute',
-            inset: 0,
-            width: '100%',
-            height: '100%',
-            objectFit: 'cover',
-          }}
-        >
-          <source src={videoSrc} type="video/mp4" />
-        </video>
-      ) : (
-        /* Fallback: hero image with subtle zoom animation */
-        <img
-          src={fallbackImage}
-          alt=""
-          fetchPriority="high"
-          decoding="async"
-          style={{
-            position: 'absolute',
-            inset: 0,
-            width: '100%',
-            height: '100%',
-            objectFit: 'cover',
-            animation: 'heroZoom 20s ease-in-out infinite alternate',
-          }}
-        />
-      )}
+      {/* Hero image with subtle zoom animation - Replaces heavy video for performance */}
+      <img
+        src={fallbackImage}
+        alt="مؤسسة المهندس لتسليك المجاري بالرياض"
+        fetchPriority="high"
+        decoding="async"
+        style={{
+          position: 'absolute',
+          inset: 0,
+          width: '100%',
+          height: '100%',
+          objectFit: 'cover',
+          animation: 'heroZoom 20s ease-in-out infinite alternate',
+        }}
+      />
 
       <style>{`
         @keyframes heroZoom {

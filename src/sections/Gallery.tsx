@@ -101,12 +101,14 @@ export default function Gallery() {
             <img
               src="/images/after-drain.jpg"
               alt="بعد التسليك"
+              loading="lazy"
               className="after-image absolute inset-0 w-full h-full object-cover"
             />
             {/* Before image (top layer, clipped) */}
             <img
               src="/images/before-drain.jpg"
               alt="قبل التسليك"
+              loading="lazy"
               className="before-image absolute inset-0 w-full h-full object-cover"
               style={{ clipPath: 'inset(0 0% 0 0)' }}
             />
