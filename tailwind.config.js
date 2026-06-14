@@ -79,9 +79,9 @@ module.exports = {
           "0%, 100%": { transform: "translateY(0px)" },
           "50%": { transform: "translateY(-20px)" },
         },
-        "glow-pulse": {
-          "0%, 100%": { boxShadow: "0 0 20px rgba(0, 85, 255, 0.3)" },
-          "50%": { boxShadow: "0 0 40px rgba(0, 85, 255, 0.6)" },
+        "eco-glow": {
+          "0%, 100%": { boxShadow: "0 0 20px rgba(16, 185, 129, 0.3)" },
+          "50%": { boxShadow: "0 0 40px rgba(16, 185, 129, 0.6)" },
         },
       },
       animation: {
@@ -89,7 +89,7 @@ module.exports = {
         "accordion-up": "accordion-up 0.2s ease-out",
         "caret-blink": "caret-blink 1.25s ease-out infinite",
         "float": "float 6s ease-in-out infinite",
-        "glow-pulse": "glow-pulse 3s ease-in-out infinite",
+        "eco-glow": "eco-glow 3s ease-in-out infinite",
       },
     },
   },

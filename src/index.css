@@ -4,7 +4,7 @@
 
 @custom-variant dark (&:is(.dark *));
 
-/* Luxury Minimalist Design System */
+/* Eco-Friendly Design System */
 @theme inline {
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
@@ -45,78 +45,78 @@
 }
 
 :root {
-  /* Luxury Minimalist Color Palette */
-  --primary: #D4AF37;
-  --primary-foreground: #121214;
-  --sidebar-primary: #C5A059;
+  /* Eco-Friendly Green Color Palette */
+  --primary: #10b981; /* Emerald 500 */
+  --primary-foreground: #ffffff;
+  --sidebar-primary: #059669;
   --sidebar-primary-foreground: #FFFFFF;
-  --chart-1: #D4AF37;
-  --chart-2: #C5A059;
-  --chart-3: #B8860B;
-  --chart-4: #A0826D;
-  --chart-5: #8B7355;
+  --chart-1: #10b981;
+  --chart-2: #34d399;
+  --chart-3: #059669;
+  --chart-4: #064e3b;
+  --chart-5: #6ee7b7;
   
-  --radius: 0.5rem;
+  --radius: 0.75rem;
   
-  /* Dark luxury background */
-  --background: #121214;
-  --foreground: #FFFFFF;
-  --card: #1A1A1D;
-  --card-foreground: #FFFFFF;
-  --popover: #1A1A1D;
-  --popover-foreground: #FFFFFF;
-  --secondary: #2A2A2E;
-  --secondary-foreground: #E8E8E8;
-  --muted: #3A3A3E;
-  --muted-foreground: #B0B0B0;
-  --accent: #D4AF37;
-  --accent-foreground: #121214;
-  --destructive: #EF4444;
-  --destructive-foreground: #FFFFFF;
-  --border: #D4AF37;
-  --input: #2A2A2E;
-  --ring: #D4AF37;
-  --sidebar: #1A1A1D;
-  --sidebar-foreground: #FFFFFF;
-  --sidebar-accent: #D4AF37;
-  --sidebar-accent-foreground: #121214;
-  --sidebar-border: #D4AF37;
-  --sidebar-ring: #D4AF37;
+  /* Dark eco background */
+  --background: #06100d; /* Very dark green-black */
+  --foreground: #ecfdf5; /* Emerald 50 */
+  --card: #0a1a15;
+  --card-foreground: #ecfdf5;
+  --popover: #0a1a15;
+  --popover-foreground: #ecfdf5;
+  --secondary: #112a22;
+  --secondary-foreground: #d1fae5;
+  --muted: #1a3a32;
+  --muted-foreground: #a7f3d0;
+  --accent: #10b981;
+  --accent-foreground: #ffffff;
+  --destructive: #ef4444;
+  --destructive-foreground: #ffffff;
+  --border: #10b981;
+  --input: #112a22;
+  --ring: #10b981;
+  --sidebar: #0a1a15;
+  --sidebar-foreground: #ecfdf5;
+  --sidebar-accent: #10b981;
+  --sidebar-accent-foreground: #ffffff;
+  --sidebar-border: #10b981;
+  --sidebar-ring: #10b981;
 }
 
 .dark {
-  --primary: #D4AF37;
-  --primary-foreground: #121214;
-  --sidebar-primary: #C5A059;
+  --primary: #10b981;
+  --primary-foreground: #ffffff;
+  --sidebar-primary: #059669;
   --sidebar-primary-foreground: #FFFFFF;
-  --background: #121214;
-  --foreground: #FFFFFF;
-  --card: #1A1A1D;
-  --card-foreground: #FFFFFF;
-  --popover: #1A1A1D;
-  --popover-foreground: #FFFFFF;
-  --secondary: #2A2A2E;
-  --secondary-foreground: #E8E8E8;
-  --muted: #3A3A3E;
-  --muted-foreground: #B0B0B0;
-  --accent: #D4AF37;
-  --accent-foreground: #121214;
-  --destructive: #EF4444;
-  --destructive-foreground: #FFFFFF;
-  --border: #D4AF37;
-  --input: #2A2A2E;
-  --ring: #D4AF37;
-  --chart-1: #D4AF37;
-  --chart-2: #C5A059;
-  --chart-3: #B8860B;
-  --chart-4: #A0826D;
-  --chart-5: #8B7355;
-  --sidebar: #1A1A1D;
-  --sidebar-foreground: #FFFFFF;
-  --sidebar-accent: #D4AF37;
-  --sidebar-accent-foreground: #121214;
-  --sidebar-border: #D4AF37;
-  --sidebar-ring: #D4AF37;
+  --background: #06100d;
+  --foreground: #ecfdf5;
+  --card: #0a1a15;
+  --card-foreground: #ecfdf5;
+  --popover: #0a1a15;
+  --popover-foreground: #ecfdf5;
+  --secondary: #112a22;
+  --secondary-foreground: #d1fae5;
+  --muted: #1a3a32;
+  --muted-foreground: #a7f3d0;
+  --accent: #10b981;
+  --accent-foreground: #ffffff;
+  --destructive: #ef4444;
+  --destructive-foreground: #ffffff;
+  --border: #10b981;
+  --input: #112a22;
+  --ring: #10b981;
+  --chart-1: #10b981;
+  --chart-2: #34d399;
+  --chart-3: #059669;
+  --chart-4: #064e3b;
+  --chart-5: #6ee7b7;
+  --sidebar: #0a1a15;
+  --sidebar-foreground: #ecfdf5;
+  --sidebar-accent: #10b981;
+  --sidebar-accent-foreground: #ffffff;
+  --sidebar-border: #10b981;
+  --sidebar-ring: #10b981;
 }
 
 @layer base {
@@ -168,17 +168,17 @@
     }
   }
 
-  /* Luxury Minimalist Components */
+  /* Eco-Friendly Components */
   .luxury-border {
-    border: 1px solid rgba(212, 175, 55, 0.3);
+    border: 1px solid rgba(16, 185, 129, 0.3);
   }
 
   .luxury-border-accent {
-    border: 1px solid #D4AF37;
+    border: 1px solid #10b981;
   }
 
   .luxury-glow {
-    box-shadow: 0 10px 25px -5px rgba(212, 175, 55, 0.2);
+    box-shadow: 0 10px 25px -5px rgba(16, 185, 129, 0.2);
   }
 
   .luxury-glow-hover {
@@ -186,7 +186,7 @@
   }
 
   .luxury-glow-hover:hover {
-    box-shadow: 0 20px 40px -10px rgba(212, 175, 55, 0.4);
+    box-shadow: 0 20px 40px -10px rgba(16, 185, 129, 0.4);
   }
 
   .luxury-button {
@@ -194,7 +194,7 @@
   }
 
   .luxury-button:hover {
-    box-shadow: 0 10px 25px -5px rgba(212, 175, 55, 0.5);
+    box-shadow: 0 10px 25px -5px rgba(16, 185, 129, 0.5);
   }
 
   .luxury-button-outline {
@@ -202,13 +202,13 @@
   }
 
   .luxury-button-outline:hover {
-    background-color: rgba(212, 175, 55, 0.1);
+    background-color: rgba(16, 185, 129, 0.1);
   }
 
   .luxury-card {
     @apply bg-card rounded-lg p-8;
-    border: 1px solid rgba(212, 175, 55, 0.3);
-    box-shadow: 0 10px 25px -5px rgba(212, 175, 55, 0.2);
+    border: 1px solid rgba(16, 185, 129, 0.3);
+    box-shadow: 0 10px 25px -5px rgba(16, 185, 129, 0.2);
   }
 
   .luxury-section {
@@ -225,12 +225,12 @@
 
   .luxury-divider {
     height: 1px;
-    background: linear-gradient(to right, transparent, #D4AF37, transparent);
+    background: linear-gradient(to right, transparent, #10b981, transparent);
   }
 
   .luxury-text-gradient {
     @apply bg-clip-text text-transparent;
-    background-image: linear-gradient(to right, #D4AF37, rgba(212, 175, 55, 0.8), #D4AF37);
+    background-image: linear-gradient(to right, #10b981, rgba(16, 185, 129, 0.8), #10b981);
   }
 
   /* RTL Support */
@@ -326,12 +326,12 @@ p {
   }
 }
 
-@keyframes goldGlow {
+@keyframes ecoGlow {
   0%, 100% {
-    box-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+    box-shadow: 0 0 20px rgba(16, 185, 129, 0.3);
   }
   50% {
-    box-shadow: 0 0 40px rgba(212, 175, 55, 0.6);
+    box-shadow: 0 0 40px rgba(16, 185, 129, 0.6);
   }
 }
 
@@ -351,8 +351,8 @@ p {
   animation: slideInLeft 0.8s ease-out;
 }
 
-.animate-goldGlow {
-  animation: goldGlow 2s ease-in-out infinite;
+.animate-ecoGlow {
+  animation: ecoGlow 2s ease-in-out infinite;
 }
 
 /* Hover Effects */
@@ -360,7 +360,7 @@ p {
   @apply transition-all duration-300 hover:translate-y-[-4px] hover:shadow-xl hover:shadow-accent/30;
 }
 
-.hover-gold {
+.hover-eco {
   @apply transition-all duration-300 hover:text-accent;
 }
 

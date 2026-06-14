@@ -20,10 +20,9 @@ function gtag_report_conversion(url?: string) {
 }
 
 /**
- * Hero Section - Luxury Minimalist
- * Design: Cinematic background image with bold typography overlay
- * Features: Premium CTAs with gold accents, trust indicators
- * RTL: Full Arabic support with proper text alignment
+ * Hero Section - Eco-Friendly
+ * Design: Cinematic background image with bold green typography overlay
+ * Features: Eco CTAs with green accents, trust indicators
  */
 export default function Hero() {
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -84,14 +83,14 @@ export default function Hero() {
         <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-foreground mb-6 leading-tight">
           تسليك مجاري
           <br />
-          <span className="luxury-text-gradient">بدقة هندسية</span>
+          <span className="luxury-text-gradient">بحلول صديقة للبيئة</span>
         </h1>
 
         {/* Subtitle */}
         <p className="text-xl md:text-2xl text-foreground/80 mb-12 max-w-3xl mx-auto leading-relaxed">
-          خدمة تسليك مجاري احترافية بأحدث التقنيات والكمبروسر المتطور
+          نستخدم أحدث تقنيات الكمبروسر المتطورة لتنظيف الأنابيب بكفاءة عالية
           <br className="hidden md:block" />
-          في الرياض والدمام مع ضمان كامل على العمل
+          خدمة محترفة في الرياض والدمام مع التزام كامل بالمعايير البيئية
         </p>
 
         {/* CTAs */}
@@ -111,7 +110,7 @@ export default function Hero() {
             className="flex items-center gap-3 px-8 py-4 border-2 border-accent text-accent font-bold rounded-lg hover:bg-accent/10 active:scale-95 transition-all duration-300 text-lg w-full sm:w-auto justify-center"
           >
             <MessageCircle size={24} />
-            <span>واتساب</span>
+            <span>واتساب مباشر</span>
           </a>
         </div>
 

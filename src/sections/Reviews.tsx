@@ -1,38 +1,38 @@
 import { Star } from 'lucide-react';
 
 /**
- * Reviews Section - Luxury Minimalist
+ * Reviews Section - Eco-Friendly
  * Design: Elegant testimonial cards with star ratings
- * Features: Customer reviews with premium styling
+ * Features: Customer reviews with green eco styling
  */
 export default function Reviews() {
   const reviews = [
     {
-      name: 'محمد الدعيع',
+      name: 'أحمد القحطاني',
       location: 'الرياض',
       rating: 5,
-      text: 'خدمة ممتازة وسريعة جداً. الفريق احترافي جداً والنتيجة رائعة. أنصح بهم بشدة.',
+      text: 'خدمة ممتازة وسريعة جداً. الفريق احترافي جداً والنتيجة رائعة باستخدام تقنية الكمبروسر البيئية. أنصح بهم بشدة.',
       avatar: '👨‍💼',
     },
     {
-      name: 'فاطمة السويلم',
+      name: 'سارة الدوسري',
       location: 'الدمام',
       rating: 5,
-      text: 'أفضل خدمة تسليك مجاري استخدمتها. الفريق ملتزم والعمل احترافي جداً وبسعر عادل.',
+      text: 'أفضل خدمة تسليك مجاري استخدمتها. أعجبني جداً اهتمامهم بالبيئة وعدم استخدام كيماويات حارقة. وبسعر عادل.',
       avatar: '👩‍💼',
     },
     {
-      name: 'سلطان العتيبي',
+      name: 'محمد الشمري',
       location: 'الرياض',
       rating: 5,
-      text: 'خدمة 24 ساعة حقيقية وفريق متجاوب جداً. حل مشكلتي في أقل من ساعة. شكراً لكم.',
+      text: 'خدمة 24 ساعة حقيقية وفريق متجاوب جداً. حل مشكلتي في أقل من ساعة بطريقة آمنة ونظيفة. شكراً لكم.',
       avatar: '👨‍💼',
     },
     {
       name: 'نور الزهراني',
       location: 'الدمام',
       rating: 5,
-      text: 'تقنية متقدمة وآمنة على الأنابيب. النتائج فوق التوقعات والضمان على العمل مريح جداً.',
+      text: 'تقنية متقدمة وآمنة على الأنابيب وصديقة للبيئة. النتائج فوق التوقعات والضمان على العمل مريح جداً.',
       avatar: '👩‍💼',
     },
   ];
@@ -45,7 +45,7 @@ export default function Reviews() {
           <h2 className="luxury-title mb-4">آراء عملائنا</h2>
           <div className="luxury-divider mb-6" />
           <p className="luxury-subtitle">
-            آلاف العملاء الراضين عن خدماتنا المتميزة
+            آلاف العملاء الراضين عن خدماتنا البيئية المتميزة
           </p>
         </div>
 

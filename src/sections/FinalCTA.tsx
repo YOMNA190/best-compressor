@@ -19,9 +19,9 @@ function gtag_report_conversion(url?: string) {
 }
 
 /**
- * Final CTA Section - Luxury Minimalist
- * Design: High-converting call-to-action with premium styling
- * Features: Prominent contact buttons with gold accents
+ * Final CTA Section - Eco-Friendly
+ * Design: High-converting call-to-action with green eco styling
+ * Features: Prominent contact buttons with green accents
  */
 export default function FinalCTA() {
   return (
@@ -30,7 +30,7 @@ export default function FinalCTA() {
         <div className="max-w-3xl mx-auto text-center">
           {/* Main Headline */}
           <h2 className="luxury-title mb-6">
-            هل أنت مستعد للحصول على خدمة احترافية؟
+            هل أنت مستعد للحصول على خدمة صديقة للبيئة؟
           </h2>
 
           {/* Divider */}
@@ -38,7 +38,7 @@ export default function FinalCTA() {
 
           {/* Subtitle */}
           <p className="text-xl md:text-2xl text-foreground/80 mb-12 leading-relaxed">
-            تواصل معنا الآن واحصل على استشارة مجانية وتقدير سعر دقيق
+            تواصل معنا الآن واحصل على استشارة مجانية وحلول تسليك آمنة وفعالة
           </p>
 
           {/* CTA Buttons */}
@@ -46,10 +46,10 @@ export default function FinalCTA() {
             <a
               href="tel:+966501401518"
               onClick={() => gtag_report_conversion('tel:+966501401518')}
-              className="flex items-center gap-3 px-10 py-5 bg-accent text-accent-foreground font-bold rounded-lg hover:shadow-2xl hover:shadow-accent/60 active:scale-95 transition-all duration-300 text-lg w-full sm:w-auto justify-center animate-goldGlow"
+              className="flex items-center gap-3 px-10 py-5 bg-accent text-accent-foreground font-bold rounded-lg hover:shadow-2xl hover:shadow-accent/60 active:scale-95 transition-all duration-300 text-lg w-full sm:w-auto justify-center animate-ecoGlow"
             >
               <Phone size={28} />
-              <span>اتصل الآن: +966 50 140 1518</span>
+              <span>اتصل الآن</span>
             </a>
             <a
               href="https://wa.me/966501401518"
@@ -65,11 +65,11 @@ export default function FinalCTA() {
           {/* Trust Message */}
           <div className="p-8 bg-card rounded-lg luxury-border">
             <p className="text-foreground/80 text-lg">
-              ✓ استجابة فورية <span className="text-accent font-bold">خلال 5 دقائق</span>
+              ✓ استجابة فورية <span className="text-accent font-bold">خلال دقائق</span>
               <br />
-              ✓ استشارة مجانية وتقدير سعر دقيق
+              ✓ تقنيات تنظيف آمنة وصديقة للبيئة
               <br />
-              ✓ فريق متخصص وموثوق
+              ✓ فريق متخصص وموثوق بخبرة طويلة
             </p>
           </div>
 

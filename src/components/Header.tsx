@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Menu, X, Phone } from 'lucide-react';
+import { Menu, X, Phone, MessageCircle } from 'lucide-react';
 
 // Google Ads Conversion Tracking for Phone Calls
 function gtag_report_conversion(url?: string) {
@@ -20,8 +20,8 @@ function gtag_report_conversion(url?: string) {
 }
 
 /**
- * Header Component - Luxury Minimalist
- * Design: Clean navigation with gold accents, sticky positioning
+ * Header Component - Eco-Friendly
+ * Design: Clean navigation with green accents, sticky positioning
  * RTL: Full right-to-left support for Arabic
  */
 export default function Header() {
@@ -55,7 +55,7 @@ export default function Header() {
             </div>
             <div className="hidden sm:block">
               <h1 className="text-xl font-bold text-foreground">Best Compressor</h1>
-              <p className="text-xs text-muted-foreground">خدمة تسليك مجاري فاخرة</p>
+              <p className="text-xs text-muted-foreground">خدمة تسليك مجاري صديقة للبيئة</p>
             </div>
           </div>
 
@@ -72,15 +72,24 @@ export default function Header() {
             ))}
           </nav>
 
-          {/* CTA Button */}
-          <div className="flex items-center gap-4">
+          {/* CTA Buttons */}
+          <div className="flex items-center gap-2">
             <a
               href="tel:+966501401518"
               onClick={() => gtag_report_conversion('tel:+966501401518')}
-              className="hidden sm:flex items-center gap-2 px-6 py-2 bg-accent text-accent-foreground rounded-lg font-semibold hover:shadow-lg hover:shadow-accent/50 transition-all duration-300 text-sm"
+              className="hidden sm:flex items-center gap-2 px-4 py-2 bg-accent text-accent-foreground rounded-lg font-semibold hover:shadow-lg hover:shadow-accent/50 transition-all duration-300 text-sm"
             >
               <Phone size={16} />
               <span>اتصل الآن</span>
+            </a>
+            <a
+              href="https://wa.me/966501401518"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hidden sm:flex items-center gap-2 px-4 py-2 border border-accent text-accent rounded-lg font-semibold hover:bg-accent/10 transition-all duration-300 text-sm"
+            >
+              <MessageCircle size={16} />
+              <span>واتساب</span>
             </a>
 
             {/* Mobile Menu Button */}
@@ -112,13 +121,25 @@ export default function Header() {
                   {item.label}
                 </a>
               ))}
-              <a
-                href="tel:+966501401518"
-                onClick={() => gtag_report_conversion('tel:+966501401518')}
-                className="px-4 py-2 bg-accent text-accent-foreground rounded-lg font-semibold hover:shadow-lg transition-all mt-2"
-              >
-                اتصل الآن
-              </a>
+              <div className="grid grid-cols-2 gap-2 mt-2">
+                <a
+                  href="tel:+966501401518"
+                  onClick={() => gtag_report_conversion('tel:+966501401518')}
+                  className="flex items-center justify-center gap-2 px-4 py-2 bg-accent text-accent-foreground rounded-lg font-semibold hover:shadow-lg transition-all"
+                >
+                  <Phone size={16} />
+                  <span>اتصل</span>
+                </a>
+                <a
+                  href="https://wa.me/966501401518"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-center gap-2 px-4 py-2 border border-accent text-accent rounded-lg font-semibold hover:bg-accent/10 transition-all"
+                >
+                  <MessageCircle size={16} />
+                  <span>واتساب</span>
+                </a>
+              </div>
             </div>
           </nav>
         )}

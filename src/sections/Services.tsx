@@ -1,83 +1,74 @@
-import { Zap, Wrench, Shield, Clock } from 'lucide-react';
+import { Zap, ShieldCheck, Clock, Droplets } from 'lucide-react';
 
 /**
- * Services Section - Luxury Minimalist
- * Design: Bento-box layout with hover effects and gold accents
- * Features: Service cards with icons and descriptions
+ * Services Section - Eco-Friendly
+ * Design: Grid layout for service offerings with green eco styling
+ * Features: Service cards with green accents and icons
  */
 export default function Services() {
   const services = [
     {
       icon: Zap,
-      title: 'تسليك سريع',
-      description: 'تسليك فوري بأحدث تقنيات الكمبروسر المتطور والآمن على الأنابيب',
-      features: ['وصول سريع', 'نتائج فورية', 'آمن 100%'],
+      title: 'تسليك سريع بالكمبروسر',
+      description: 'حلول فورية لانسدادات المجاري باستخدام أحدث أجهزة الكمبروسر التي تعمل بضغط الهواء والماء.',
+      features: ['استجابة سريعة', 'بدون تكسير', 'تنظيف شامل للأنابيب'],
     },
     {
-      icon: Wrench,
-      title: 'صيانة احترافية',
-      description: 'فحص شامل وصيانة دورية للأنابيب والمجاري بدقة هندسية عالية',
-      features: ['فحص مجاني', 'تقرير مفصل', 'ضمان العمل'],
+      icon: ShieldCheck,
+      title: 'صيانة وقائية بيئية',
+      description: 'برامج صيانة دورية تضمن سلامة شبكة الصرف وحمايتها من الانسدادات المستقبلية بطرق مستدامة.',
+      features: ['فحص بالكاميرا', 'تنظيف دوري آمن', 'تقارير فنية'],
     },
     {
-      icon: Shield,
-      title: 'حماية دائمة',
-      description: 'حلول وقائية متقدمة لحماية أنابيبك من الانسدادات المستقبلية',
-      features: ['معالجة كيميائية', 'حماية طويلة', 'استشارة مجانية'],
+      icon: Droplets,
+      title: 'تنظيف أنابيب آمن',
+      description: 'نستخدم تقنيات ميكانيكية متطورة لتنظيف الأنابيب من الداخل دون الحاجة لمواد كيميائية حارقة.',
+      features: ['إزالة الدهون والترسبات', 'آمن على المواسير', 'صديق للبيئة'],
     },
     {
       icon: Clock,
-      title: 'خدمة 24 ساعة',
-      description: 'فريق احترافي متاح في أي وقت لحل مشاكلك الطارئة والحرجة',
-      features: ['رد سريع', 'عمل ليلي', 'في أي وقت'],
+      title: 'طوارئ على مدار الساعة',
+      description: 'فريقنا متاح 24/7 للتعامل مع حالات الطوارئ المفاجئة في الرياض والدمام بأقصى سرعة.',
+      features: ['متاح 24/7', 'تغطية شاملة', 'وصول سريع'],
     },
   ];
 
   return (
-    <section id="services" className="luxury-section bg-gradient-to-b from-background to-card">
+    <section id="services" className="luxury-section bg-card/50">
       <div className="container mx-auto">
         {/* Section Header */}
-        <div className="text-center mb-16">
-          <h2 className="luxury-title mb-4">خدماتنا المتميزة</h2>
-          <div className="luxury-divider mb-6" />
-          <p className="luxury-subtitle">
-            نقدم حلولاً احترافية وشاملة لجميع احتياجات تسليك المجاري
+        <div className="text-center mb-20">
+          <h2 className="luxury-title mb-6">خدماتنا البيئية المتميزة</h2>
+          <div className="luxury-divider mx-auto w-24 mb-8" />
+          <p className="luxury-subtitle max-w-2xl mx-auto">
+            نقدم حلولاً متكاملة لتسليك المجاري وصيانة شبكات الصرف الصحي باستخدام أحدث التقنيات الآمنة على منزلك والبيئة.
           </p>
         </div>
 
         {/* Services Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {services.map((service, idx) => {
             const Icon = service.icon;
             return (
               <div
                 key={idx}
-                className="luxury-card group hover-lift cursor-pointer"
+                className="luxury-card group hover-lift"
               >
-                {/* Icon */}
-                <div className="w-16 h-16 rounded-lg bg-accent/10 flex items-center justify-center mb-6 group-hover:bg-accent/20 transition-colors">
-                  <Icon size={32} className="text-accent" />
+                <div className="w-16 h-16 rounded-2xl bg-accent/10 flex items-center justify-center mb-6 group-hover:bg-accent group-hover:text-accent-foreground transition-all duration-500">
+                  <Icon size={32} className="text-accent group-hover:text-inherit" />
                 </div>
-
-                {/* Title */}
-                <h3 className="text-2xl font-bold text-foreground mb-3">
-                  {service.title}
-                </h3>
-
-                {/* Description */}
-                <p className="text-foreground/70 mb-6 leading-relaxed">
+                <h3 className="text-2xl font-bold text-foreground mb-4">{service.title}</h3>
+                <p className="text-foreground/70 mb-8 leading-relaxed">
                   {service.description}
                 </p>
-
-                {/* Features */}
-                <div className="space-y-2 pt-6 border-t border-accent/20">
-                  {service.features.map((feature, fidx) => (
-                    <div key={fidx} className="flex items-center gap-2">
+                <ul className="space-y-3">
+                  {service.features.map((feature, fIdx) => (
+                    <li key={fIdx} className="flex items-center gap-2 text-sm text-foreground/80">
                       <div className="w-1.5 h-1.5 rounded-full bg-accent" />
-                      <span className="text-foreground/80 text-sm">{feature}</span>
-                    </div>
+                      {feature}
+                    </li>
                   ))}
-                </div>
+                </ul>
               </div>
             );
           })}
