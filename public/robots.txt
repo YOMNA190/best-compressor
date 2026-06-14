@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://riyadh-drain.vercel.app/sitemap.xml

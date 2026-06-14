@@ -1,135 +1,110 @@
-import { Phone, MessageCircle, CheckCircle } from 'lucide-react';
 import { useEffect, useRef } from 'react';
+import { Phone, MessageCircle } from 'lucide-react';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
-// Google Ads Conversion Tracking for Phone Calls
-function gtag_report_conversion(url?: string) {
-  const callback = function () {
-    if (typeof url !== 'undefined') {
-      window.location.href = url;
-    }
-  };
-  if (typeof window !== 'undefined' && (window as any).gtag) {
-    (window as any).gtag('event', 'conversion', {
-      'send_to': 'AW-18237596537/ehTyCJnpzL4cEPnGrvhD',
-      'value': 1.0,
-      'currency': 'EGP',
-      'event_callback': callback
-    });
-  }
-  return false;
-}
+gsap.registerPlugin(ScrollTrigger);
 
-/**
- * Hero Section - Eco-Friendly
- * Design: Cinematic background image with bold green typography overlay
- * Features: Eco CTAs with green accents, trust indicators
- */
 export default function Hero() {
-  const sectionRef = useRef<HTMLDivElement>(null);
+  const sectionRef = useRef<HTMLElement>(null);
+  const titleRef = useRef<HTMLHeadingElement>(null);
+  const subtitleRef = useRef<HTMLParagraphElement>(null);
+  const buttonsRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('animate-fadeInUp');
-        }
+    const section = sectionRef.current;
+    const title = titleRef.current;
+    const subtitle = subtitleRef.current;
+    const buttons = buttonsRef.current;
+    if (!section || !title || !subtitle || !buttons) return;
+
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: section,
+        start: 'top top',
+        end: '+=150%',
+        pin: true,
+        scrub: true,
       },
-      { threshold: 0.1 }
+    });
+
+    tl.fromTo(
+      title,
+      { opacity: 0, y: 50 },
+      {
+        opacity: 1,
+        y: 0,
+        ease: 'power2.out',
+      },
+      0
     );
 
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
+    tl.fromTo(
+      subtitle,
+      { opacity: 0, y: 30 },
+      { opacity: 1, y: 0, ease: 'power2.out' },
+      0.3
+    );
 
-    return () => observer.disconnect();
+    tl.fromTo(
+      buttons,
+      { opacity: 0, y: 30 },
+      { opacity: 1, y: 0, ease: 'power2.out' },
+      0.5
+    );
+
+    return () => {
+      tl.kill();
+      ScrollTrigger.getAll().forEach((st) => {
+        if (st.vars.trigger === section) st.kill();
+      });
+    };
   }, []);
-
-  const trustItems = [
-    { icon: '✓', label: '+10,000 عميل راضي' },
-    { icon: '✓', label: 'خدمة 24 ساعة' },
-    { icon: '✓', label: 'ضمان على العمل' },
-    { icon: '✓', label: 'خبرة 15+ سنة' },
-  ];
 
   return (
     <section
-      id="hero"
       ref={sectionRef}
-      className="relative min-h-screen w-full flex items-center justify-center overflow-hidden pt-20"
+      id="hero"
+      className="relative min-h-screen flex items-center z-10"
     >
-      {/* Background Image with Overlay */}
-      <div
-        className="absolute inset-0 z-0"
-        style={{
-          backgroundImage: `url('https://d2xsxph8kpxj0f.cloudfront.net/310519663594372769/RXekFWzqRZqREtUzHxtuDw/hero-compressor-industrial-eAkCszTww7RtDaBFMHRkiY.webp')`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          backgroundAttachment: 'fixed',
-        }}
-      />
-
-      {/* Dark Overlay for Text Contrast */}
-      <div className="absolute inset-0 z-1 bg-gradient-to-b from-background/70 via-background/50 to-background" />
-
-      {/* Content */}
-      <div className="relative z-10 container mx-auto px-4 py-32 text-center">
-        {/* Badge */}
-        <div className="inline-flex items-center gap-2 mb-8 px-6 py-3 bg-accent/10 border border-accent/30 rounded-full">
-          <div className="w-2 h-2 bg-accent rounded-full animate-pulse" />
-          <span className="text-accent font-semibold text-sm">خدمة طوارئ متاحة الآن</span>
-        </div>
-
-        {/* Main Headline */}
-        <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-foreground mb-6 leading-tight">
-          تسليك مجاري
-          <br />
-          <span className="luxury-text-gradient">بحلول صديقة للبيئة</span>
-        </h1>
-
-        {/* Subtitle */}
-        <p className="text-xl md:text-2xl text-foreground/80 mb-12 max-w-3xl mx-auto leading-relaxed">
-          نستخدم أحدث تقنيات الكمبروسر المتطورة لتنظيف الأنابيب بكفاءة عالية
-          <br className="hidden md:block" />
-          خدمة محترفة في الرياض والدمام مع التزام كامل بالمعايير البيئية
-        </p>
-
-        {/* CTAs */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
-          <a
-            href="tel:+966501401518"
-            onClick={() => gtag_report_conversion('tel:+966501401518')}
-            className="flex items-center gap-3 px-8 py-4 bg-accent text-accent-foreground font-bold rounded-lg hover:shadow-xl hover:shadow-accent/50 active:scale-95 transition-all duration-300 text-lg w-full sm:w-auto justify-center"
+      <div className="max-w-[1512px] mx-auto px-6 md:px-12 w-full pt-24">
+        <div className="max-w-3xl">
+          <h1
+            ref={titleRef}
+            className="font-display text-5xl md:text-7xl lg:text-[84px] font-medium text-white leading-tight md:leading-[90px] tracking-tight mb-6"
           >
-            <Phone size={24} />
-            <span>اتصل الآن</span>
-          </a>
-          <a
-            href="https://wa.me/966501401518"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-3 px-8 py-4 border-2 border-accent text-accent font-bold rounded-lg hover:bg-accent/10 active:scale-95 transition-all duration-300 text-lg w-full sm:w-auto justify-center"
-          >
-            <MessageCircle size={24} />
-            <span>واتساب مباشر</span>
-          </a>
-        </div>
+            تسليك مجاري بالرياض 24 ساعة
+          </h1>
 
-        {/* Trust Indicators */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
-          {trustItems.map((item, idx) => (
-            <div
-              key={idx}
-              className="flex items-center gap-3 p-4 bg-background/50 border border-accent/20 rounded-lg hover:border-accent/50 transition-all duration-300"
+          <p
+            ref={subtitleRef}
+            className="text-lg md:text-2xl text-white/80 font-light leading-relaxed mb-10 max-w-2xl"
+          >
+            وصول سريع، بدون تكسير، وأحدث أجهزة تسليك المجاري والكمبروسر لخدمة
+            جميع أحياء الرياض.
+          </p>
+
+          <div ref={buttonsRef} className="flex flex-wrap gap-4">
+            <a
+              href="tel:+966501401518"
+              onClick={() => (window as any).gtag_report_conversion?.('tel:+966501401518')}
+              className="inline-flex items-center gap-3 bg-white text-deep-navy px-8 py-4 rounded-pill text-lg font-medium hover:bg-white/90 transition-all duration-300 hover:scale-[0.98] active:scale-95 shadow-card"
             >
-              <CheckCircle size={20} className="text-accent flex-shrink-0" />
-              <span className="text-foreground/90 text-sm font-medium">{item.label}</span>
-            </div>
-          ))}
+              <Phone className="w-5 h-5" />
+              <span>اتصل الآن</span>
+            </a>
+            <a
+              href="https://wa.me/966501401518"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-3 bg-gold text-deep-navy px-8 py-4 rounded-pill text-lg font-medium hover:bg-gold/90 transition-all duration-300 hover:scale-[0.98] active:scale-95 shadow-card"
+            >
+              <MessageCircle className="w-5 h-5" />
+              <span>واتساب مباشر</span>
+            </a>
+          </div>
         </div>
       </div>
-
-      {/* Bottom Gradient Fade */}
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent z-10 pointer-events-none" />
     </section>
   );
 }

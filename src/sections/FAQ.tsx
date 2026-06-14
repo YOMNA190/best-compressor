@@ -1,124 +1,151 @@
-import { useState } from 'react';
-import { ChevronDown, Phone, MessageCircle } from 'lucide-react';
+import { useState, useEffect, useRef } from 'react';
+import { ChevronDown } from 'lucide-react';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
-// Google Ads Conversion Tracking for Phone Calls
-function gtag_report_conversion(url?: string) {
-  const callback = function () {
-    if (typeof url !== 'undefined') {
-      window.location.href = url;
-    }
-  };
-  if (typeof window !== 'undefined' && (window as any).gtag) {
-    (window as any).gtag('event', 'conversion', {
-      'send_to': 'AW-18237596537/ehTyCJnpzL4cEPnGrvhD',
-      'value': 1.0,
-      'currency': 'EGP',
-      'event_callback': callback
-    });
-  }
-  return false;
+gsap.registerPlugin(ScrollTrigger);
+
+const faqs = [
+  {
+    question: 'كم يستغرق الوصول؟',
+    answer:
+      'نصل إليك خلال 30 دقيقة فقط في جميع أحياء الرياض، حيث نمتلك فريقاً متوزعاً في مختلف أنحاء المدينة للاستجابة السريعة.',
+  },
+  {
+    question: 'هل يتم التسليك بدون تكسير؟',
+    answer:
+      'نعم، نستخدم أحدث أجهزة التسليك بدون تكسير مثل الكمبرسور وكاميرات الفحص التي تتيح لنا تحديد مكان الانسداد بدقة وحله دون الحاجة لتكسير الجدران أو الأرضيات.',
+  },
+  {
+    question: 'هل الخدمة متوفرة 24 ساعة؟',
+    answer:
+      'نعم، نعمل على مدار 24 ساعة طوال أيام الأسبوع بما في ذلك الإجازات والعطل الرسمية.',
+  },
+  {
+    question: 'هل تعملون في جميع أحياء الرياض؟',
+    answer:
+      'نعم، نغطي جميع أحياء الرياض شمالاً وجنوباً وشرقاً وغرباً ووسط المدينة.',
+  },
+  {
+    question: 'ما هي تكلفة الخدمة؟',
+    answer:
+      'تبدأ أسعارنا من 150 ريال سعودي، وتختلف التكلفة حسب نوع وحجم المشكلة. نقدم عرضاً مجانياً بعد الفحص.',
+  },
+  {
+    question: 'هل تقدمون ضمان على الخدمة؟',
+    answer:
+      'نعم، نقدم ضماناً يصل إلى 6 أشهر على جميع أعمال التسليك. إذا عادت المشكلة خلال فترة الضمان، نقوم بالإصلاح مجاناً.',
+  },
+  {
+    question: 'ما هي طرق الدفع المتاحة؟',
+    answer:
+      'نقبل الدفع نقداً وبطاقات مدى والتحويل البنكي. كما نقدم فواتير رسمية لجميع عملائنا.',
+  },
+  {
+    question: 'كيف يمكنني الحجز؟',
+    answer:
+      'يمكنك الحجز عن طريق الاتصال المباشر على الرقم الموحد، أو عبر الواتساب، أو ملء نموذج الطلب على الموقع.',
+  },
+];
+
+function FAQItem({
+  faq,
+  isOpen,
+  onToggle,
+}: {
+  faq: (typeof faqs)[0];
+  isOpen: boolean;
+  onToggle: () => void;
+}) {
+  return (
+    <div className="border-b border-white/10 last:border-b-0">
+      <button
+        onClick={onToggle}
+        className="w-full flex items-center justify-between py-5 text-right group"
+        aria-expanded={isOpen}
+      >
+        <span className="font-display text-lg font-medium text-white group-hover:text-gold transition-colors duration-300">
+          {faq.question}
+        </span>
+        <ChevronDown
+          className={`w-5 h-5 text-gold flex-shrink-0 mr-4 transition-transform duration-300 ${
+            isOpen ? 'rotate-180' : ''
+          }`}
+        />
+      </button>
+      <div
+        className={`overflow-hidden transition-all duration-300 ${
+          isOpen ? 'max-h-48 opacity-100' : 'max-h-0 opacity-0'
+        }`}
+      >
+        <p className="text-white/60 pb-5 leading-relaxed pr-0">
+          {faq.answer}
+        </p>
+      </div>
+    </div>
+  );
 }
 
-/**
- * FAQ Section - Eco-Friendly
- * Design: Clean accordion layout with green eco styling
- * RTL: Full right-to-left support for Arabic
- */
 export default function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
+  const sectionRef = useRef<HTMLElement>(null);
+  const itemsRef = useRef<HTMLDivElement>(null);
 
-  const faqs = [
-    {
-      question: 'ما هي تقنية الكمبروسر التي تستخدمونها؟',
-      answer: 'نستخدم أحدث أجهزة الكمبروسر الألمانية التي تعمل بضغط الهواء والماء الصديق للبيئة، مما يضمن تسليك الأنابيب دون الحاجة لاستخدام مواد كيميائية ضارة قد تؤثر على سلامة المواسير أو البيئة.',
-    },
-    {
-      question: 'هل توفرون ضماناً على خدمة التسليك؟',
-      answer: 'نعم، نقدم ضماناً كاملاً على جميع أعمالنا. نحن نثق في جودة عملنا ونحرص على رضا عملائنا التام، وفي حال تكرار المشكلة خلال فترة الضمان، نقوم بالمعالجة مجاناً.',
-    },
-    {
-      question: 'ما هي المناطق التي تغطيها خدمتكم؟',
-      answer: 'نغطي حالياً جميع أحياء مدينة الرياض ومدينة الدمام والمناطق المحيطة بهما، مع توفر فرق طوارئ جاهزة للتحرك السريع في أي وقت.',
-    },
-    {
-      question: 'كم يستغرق وصول الفريق إلي؟',
-      answer: 'نحرص على الاستجابة السريعة، حيث يصل فريقنا عادة خلال 30 إلى 60 دقيقة من وقت طلب الخدمة، خاصة في حالات الطوارئ.',
-    },
-    {
-      question: 'هل المواد المستخدمة آمنة على مواسير المنزل؟',
-      answer: 'بالتأكيد، تقنياتنا تعتمد على الضغط الميكانيكي والهواء، وهي الطريقة الأكثر أماناً للمواسير مقارنة بالمواد الكيميائية الحارقة التي قد تسبب تآكلاً مع الوقت.',
-    },
-    {
-      question: 'كيف يمكنني حجز موعد؟',
-      answer: 'يمكنك الحجز مباشرة عبر الاتصال الهاتفي أو عبر الواتساب. نحن متاحون على مدار الساعة طوال أيام الأسبوع لخدمتكم.',
-    },
-  ];
+  useEffect(() => {
+    const section = sectionRef.current;
+    const items = itemsRef.current;
+    if (!section || !items) return;
+
+    gsap.fromTo(
+      items,
+      { opacity: 0, y: 30 },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 0.8,
+        ease: 'power3.out',
+        scrollTrigger: {
+          trigger: section,
+          start: 'top 75%',
+          toggleActions: 'play none none reverse',
+        },
+      }
+    );
+
+    return () => {
+      ScrollTrigger.getAll().forEach((st) => {
+        if (st.vars.trigger && (section?.contains(st.vars.trigger as Element) || st.vars.trigger === section)) {
+          st.kill();
+        }
+      });
+    };
+  }, []);
 
   return (
-    <section id="faq" className="luxury-section bg-card/30">
-      <div className="container mx-auto">
-        <div className="max-w-4xl mx-auto">
-          {/* Header */}
-          <div className="text-center mb-16">
-            <h2 className="luxury-title mb-4">الأسئلة الشائعة</h2>
-            <div className="luxury-divider mx-auto w-24 mb-6" />
-            <p className="luxury-subtitle">كل ما تحتاج معرفته عن خدماتنا البيئية المتميزة</p>
-          </div>
+    <section
+      ref={sectionRef}
+      id="faq"
+      className="relative z-10 bg-deep-navy py-24 md:py-32"
+    >
+      <div className="max-w-[900px] mx-auto px-6 md:px-12">
+        <div className="text-center mb-12">
+          <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-medium text-white tracking-tight mb-4">
+            الأسئلة الشائعة
+          </h2>
+          <p className="text-lg text-white/60">
+            إليك إجابات على أكثر الأسئلة شيوعاً
+          </p>
+        </div>
 
-          {/* FAQ Accordion */}
-          <div className="space-y-4">
-            {faqs.map((faq, idx) => (
-              <div
-                key={idx}
-                className="luxury-card !p-0 overflow-hidden transition-all duration-300"
-              >
-                <button
-                  onClick={() => setOpenIndex(openIndex === idx ? null : idx)}
-                  className="w-full flex items-center justify-between p-6 text-right hover:bg-accent/5 transition-colors"
-                >
-                  <span className="text-xl font-bold text-foreground">{faq.question}</span>
-                  <ChevronDown
-                    className={`text-accent transition-transform duration-300 ${
-                      openIndex === idx ? 'rotate-180' : ''
-                    }`}
-                  />
-                </button>
-                <div
-                  className={`transition-all duration-300 ease-in-out ${
-                    openIndex === idx ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
-                  }`}
-                >
-                  <div className="p-6 pt-0 border-t border-accent/10">
-                    <p className="text-foreground/70 leading-relaxed">{faq.answer}</p>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          {/* Bottom CTA */}
-          <div className="mt-16 text-center">
-            <p className="text-foreground/70 mb-8">لديك سؤال آخر؟ لا تتردد في التواصل معنا</p>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <a
-                href="tel:+966501401518"
-                onClick={() => gtag_report_conversion('tel:+966501401518')}
-                className="flex items-center gap-2 px-8 py-3 bg-accent text-accent-foreground font-bold rounded-lg hover:shadow-lg transition-all"
-              >
-                <Phone size={20} />
-                <span>اتصل بنا</span>
-              </a>
-              <a
-                href="https://wa.me/966501401518"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 px-8 py-3 border border-accent text-accent font-bold rounded-lg hover:bg-accent/10 transition-all"
-              >
-                <MessageCircle size={20} />
-                <span>واتساب مباشر</span>
-              </a>
-            </div>
-          </div>
+        <div ref={itemsRef}>
+          {faqs.map((faq, i) => (
+            <FAQItem
+              key={i}
+              faq={faq}
+              isOpen={openIndex === i}
+              onToggle={() => setOpenIndex(openIndex === i ? null : i)}
+            />
+          ))}
         </div>
       </div>
     </section>

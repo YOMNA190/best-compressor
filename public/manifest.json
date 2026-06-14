@@ -1,0 +1,18 @@
+{
+  "name": "مؤسسة المهندس لتسليك المجاري بالرياض",
+  "short_name": "المهندس تسليك",
+  "description": "خدمات تسليك المجاري والصرف الصحي في الرياض 24 ساعة",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0F172A",
+  "theme_color": "#0284C7",
+  "lang": "ar",
+  "dir": "rtl",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "any",
+      "type": "image/x-icon"
+    }
+  ]
+}

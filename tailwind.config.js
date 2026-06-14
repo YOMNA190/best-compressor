@@ -10,6 +10,12 @@ module.exports = {
         ring: "hsl(var(--ring))",
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
+        'deep-navy': '#0F172A',
+        'clean-blue': '#0284C7',
+        'gold': '#E6B325',
+        'soft-gray': '#F8FAFC',
+        'text-navy': '#1E293B',
+        'muted-navy': '#64748B',
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
@@ -38,16 +44,10 @@ module.exports = {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-        sidebar: {
-          DEFAULT: "hsl(var(--sidebar-background))",
-          foreground: "hsl(var(--sidebar-foreground))",
-          primary: "hsl(var(--sidebar-primary))",
-          "primary-foreground": "hsl(var(--sidebar-primary-foreground))",
-          accent: "hsl(var(--sidebar-accent))",
-          "accent-foreground": "hsl(var(--sidebar-accent-foreground))",
-          border: "hsl(var(--sidebar-border))",
-          ring: "hsl(var(--sidebar-ring))",
-        },
+      },
+      fontFamily: {
+        display: ['"Space Grotesk"', 'Cairo', 'sans-serif'],
+        body: ['Cairo', 'sans-serif'],
       },
       borderRadius: {
         xl: "calc(var(--radius) + 4px)",
@@ -55,12 +55,14 @@ module.exports = {
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
         xs: "calc(var(--radius) - 6px)",
+        '2xl': '16px',
+        '3xl': '24px',
+        'pill': '100px',
       },
       boxShadow: {
         xs: "0 1px 2px 0 rgb(0 0 0 / 0.05)",
-      },
-      fontFamily: {
-        arabic: ['"IBM Plex Sans Arabic"', '"Inter"', 'sans-serif'],
+        card: "rgba(0, 0, 0, 0.15) 0px 8px 24px",
+        'card-subtle': "rgba(0, 0, 0, 0.1) 0px 4px 12px",
       },
       keyframes: {
         "accordion-down": {
@@ -75,21 +77,16 @@ module.exports = {
           "0%,70%,100%": { opacity: "1" },
           "20%,50%": { opacity: "0" },
         },
-        "float": {
-          "0%, 100%": { transform: "translateY(0px)" },
-          "50%": { transform: "translateY(-20px)" },
-        },
-        "eco-glow": {
-          "0%, 100%": { boxShadow: "0 0 20px rgba(16, 185, 129, 0.3)" },
-          "50%": { boxShadow: "0 0 40px rgba(16, 185, 129, 0.6)" },
+        "marquee": {
+          "0%": { transform: "translateX(0%)" },
+          "100%": { transform: "translateX(-50%)" },
         },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
         "caret-blink": "caret-blink 1.25s ease-out infinite",
-        "float": "float 6s ease-in-out infinite",
-        "eco-glow": "eco-glow 3s ease-in-out infinite",
+        "marquee": "marquee 30s linear infinite",
       },
     },
   },
