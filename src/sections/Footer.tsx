@@ -226,16 +226,29 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* Floating WhatsApp button */}
-      <a
-        href="https://wa.me/966501401518"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="fixed bottom-6 left-6 z-50 w-16 h-16 bg-[#25D366] rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform duration-300"
-        aria-label="تواصل عبر واتساب"
-      >
-        <MessageCircle className="w-8 h-8 text-white" />
-      </a>
+      {/* Floating Action Buttons */}
+      <div className="fixed bottom-6 left-6 z-50 flex flex-col gap-4">
+        {/* Floating Phone button */}
+        <a
+          href="tel:+966501401518"
+          onClick={() => (window as any).gtag_report_conversion?.('tel:+966501401518')}
+          className="w-16 h-16 bg-clean-blue rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform duration-300 animate-bounce"
+          aria-label="اتصل بنا الآن"
+        >
+          <Phone className="w-8 h-8 text-white" />
+        </a>
+
+        {/* Floating WhatsApp button */}
+        <a
+          href="https://wa.me/966501401518"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="w-16 h-16 bg-[#25D366] rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform duration-300"
+          aria-label="تواصل عبر واتساب"
+        >
+          <MessageCircle className="w-8 h-8 text-white" />
+        </a>
+      </div>
     </footer>
   );
 }
