@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react';
-import { Clock, MapPin, Award, Smartphone, Shield, DollarSign, Users, Truck } from 'lucide-react';
+import { Clock, MapPin, Award, Smartphone, Shield, DollarSign, Users, Truck, Phone } from 'lucide-react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 

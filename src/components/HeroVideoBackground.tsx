@@ -11,7 +11,7 @@
  * أو استخدمي رابط مباشر:
  * const videoSrc = "https://cdn.pexels.com/video/xxxx/free.mp4";
  */
-const videoSrc = '/videos/hero.mp4'; // ← ضعي مسار الفيديو هنا
+// const videoSrc = '/videos/hero.mp4'; // ← ضعي مسار الفيديو هنا
 const fallbackImage = '/images/hero-technician.jpg';
 
 export default function HeroVideoBackground() {
