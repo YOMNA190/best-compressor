@@ -1,5 +1,6 @@
 import { useEffect, useRef } from 'react';
 import { Phone, MessageCircle, MapPin, Clock, Mail } from 'lucide-react';
+import { trackPrimaryCTA, trackSecondaryCTA } from '../lib/gtag';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
@@ -84,7 +85,7 @@ export default function Footer() {
           <div className="flex flex-wrap items-center justify-center gap-4">
             <a
               href="tel:+966501401518"
-              onClick={() => (window as any).gtag_report_conversion_call?.('tel:+966501401518')}
+              onClick={() => trackPrimaryCTA()}
               className="inline-flex items-center gap-3 bg-clean-blue text-white px-10 py-5 rounded-pill text-xl font-medium hover:bg-clean-blue/90 transition-all duration-300 hover:scale-[0.98] active:scale-95 shadow-card"
             >
               <Phone className="w-6 h-6" />
@@ -92,7 +93,7 @@ export default function Footer() {
             </a>
             <a
               href="https://wa.me/966501401518"
-              onClick={() => (window as any).gtag_report_conversion_contact?.('https://wa.me/966501401518')}
+              onClick={() => trackSecondaryCTA()}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-3 bg-gold text-deep-navy px-10 py-5 rounded-pill text-xl font-medium hover:bg-gold/90 transition-all duration-300 hover:scale-[0.98] active:scale-95 shadow-card"
@@ -125,7 +126,7 @@ export default function Footer() {
               <div className="flex items-center gap-3">
                 <a
                   href="tel:+966501401518"
-                  onClick={() => (window as any).gtag_report_conversion_call?.('tel:+966501401518')}
+                  onClick={() => trackPrimaryCTA()}
                   className="w-10 h-10 rounded-full bg-clean-blue/20 flex items-center justify-center hover:bg-clean-blue/40 transition-colors duration-300"
                   aria-label="اتصل بنا"
                 >
@@ -133,7 +134,7 @@ export default function Footer() {
                 </a>
                 <a
                   href="https://wa.me/966501401518"
-                  onClick={() => (window as any).gtag_report_conversion_contact?.('https://wa.me/966501401518')}
+                  onClick={() => trackSecondaryCTA()}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-10 h-10 rounded-full bg-gold/20 flex items-center justify-center hover:bg-gold/40 transition-colors duration-300"
@@ -233,7 +234,7 @@ export default function Footer() {
         {/* Floating Phone button */}
         <a
           href="tel:+966501401518"
-          onClick={() => (window as any).gtag_report_conversion_call?.('tel:+966501401518')}
+          onClick={() => trackPrimaryCTA()}
           className="w-16 h-16 bg-clean-blue rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform duration-300 animate-bounce"
           aria-label="اتصل بنا الآن"
         >
@@ -243,7 +244,7 @@ export default function Footer() {
         {/* Floating WhatsApp button */}
         <a
           href="https://wa.me/966501401518"
-          onClick={() => (window as any).gtag_report_conversion_contact?.('https://wa.me/966501401518')}
+          onClick={() => trackSecondaryCTA()}
           target="_blank"
           rel="noopener noreferrer"
           className="w-16 h-16 bg-[#25D366] rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform duration-300"

@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { trackGeneralConversion } from './lib/gtag';
 import Lenis from 'lenis';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -31,6 +32,9 @@ export default function App() {
 
     gsap.ticker.add(tickerFn);
     gsap.ticker.lagSmoothing(0);
+
+    // Track general page conversion
+    trackGeneralConversion();
 
     return () => {
       lenis.destroy();
