@@ -58,7 +58,7 @@ export default function Header() {
           {/* CTA Buttons */}
           <div className="flex items-center gap-2">
             <a
-              href="tel:+966501401518"
+              href="tel:+966506271272"
               onClick={() => trackPrimaryCTA()}
               className="hidden sm:flex items-center gap-2 px-4 py-2 bg-accent text-accent-foreground rounded-lg font-semibold hover:shadow-lg hover:shadow-accent/50 transition-all duration-300 text-sm"
             >
@@ -66,7 +66,7 @@ export default function Header() {
               <span>اتصل الآن</span>
             </a>
             <a
-              href="https://wa.me/966501401518"
+              href="https://wa.me/966506271272"
               onClick={() => trackSecondaryCTA()}
               target="_blank"
               rel="noopener noreferrer"
@@ -107,7 +107,7 @@ export default function Header() {
               ))}
               <div className="grid grid-cols-2 gap-2 mt-2">
                 <a
-                  href="tel:+966501401518"
+                  href="tel:+966506271272"
                   onClick={() => trackPrimaryCTA()}
                   className="flex items-center justify-center gap-2 px-4 py-2 bg-accent text-accent-foreground rounded-lg font-semibold hover:shadow-lg transition-all"
                 >
@@ -115,7 +115,7 @@ export default function Header() {
                   <span>اتصل</span>
                 </a>
                 <a
-                  href="https://wa.me/966501401518"
+                  href="https://wa.me/966506271272"
                   onClick={() => trackSecondaryCTA()}
                   target="_blank"
                   rel="noopener noreferrer"

@@ -126,7 +126,7 @@ export default function WhyChooseUs() {
             </p>
             <div className="flex flex-wrap gap-3">
               <a
-                href="tel:+966501401518"
+                href="tel:+966506271272"
                 onClick={() => trackPrimaryCTA()}
                 className="inline-flex items-center gap-2 bg-clean-blue text-white px-6 py-3 rounded-pill font-medium hover:bg-clean-blue/90 transition-all duration-300 hover:scale-[0.98] active:scale-95"
               >
