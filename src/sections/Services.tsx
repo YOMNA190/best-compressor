@@ -111,6 +111,7 @@ export default function Services() {
               <div
                 key={service.title}
                 ref={(el) => { cardsRef.current[i] = el; }}
+                id={`service-${i}`}
                 className="group bg-white rounded-3xl overflow-hidden shadow-card-subtle hover:shadow-card transition-all duration-500 hover:-translate-y-2 cursor-default"
               >
                 <div className="h-48 overflow-hidden">
