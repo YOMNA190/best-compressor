@@ -21,7 +21,7 @@ export const event = ({ action, category, label, value, send_to }: {
 export const trackGeneralConversion = () => {
   event({
     action: 'conversion',
-    send_to: `${GA_TRACKING_ID}/rC7NCOf-1cEcELqry89D`,
+    send_to: `${GA_TRACKING_ID}/809dCO3-1cEcELqry89D`,
     value: 1.0,
   });
 };
@@ -29,7 +29,7 @@ export const trackGeneralConversion = () => {
 export const trackPrimaryCTA = () => {
   event({
     action: 'conversion',
-    send_to: `${GA_TRACKING_ID}/ElpkCOT-1cEcELqry89D`,
+    send_to: `${GA_TRACKING_ID}/809dCO3-1cEcELqry89D`,
     value: 1.0,
   });
 };
