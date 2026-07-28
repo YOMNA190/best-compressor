@@ -1,13 +1,14 @@
 {
-  "name": "مؤسسة المهندس لتسليك المجاري بالرياض",
+  "name": "مؤسسة المهندس لتسليك المجاري بالرياض | كمبروسر 24 ساعة",
   "short_name": "المهندس تسليك",
-  "description": "خدمات تسليك المجاري والصرف الصحي في الرياض 24 ساعة",
+  "description": "خدمات تسليك المجاري والصرف الصحي في الرياض 24 ساعة بالكمبروسر بدون تكسير. وصول خلال 30 دقيقة. ضمان 6 أشهر.",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#0F172A",
   "theme_color": "#0284C7",
   "lang": "ar",
   "dir": "rtl",
+  "categories": ["plumbing", "home_services", "emergency"],
   "icons": [
     {
       "src": "/favicon.ico",

@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://riyadh-drain.vercel.app/sitemap.xml
+Sitemap: https://best-compressor.vercel.app/sitemap.xml
