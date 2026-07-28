@@ -84,7 +84,7 @@ export default function Footer() {
           </p>
           <div className="flex flex-wrap items-center justify-center gap-4">
             <a
-              href="tel:+966506271272"
+              href="tel:+966538555718"
               onClick={() => trackPrimaryCTA()}
               className="inline-flex items-center gap-3 bg-clean-blue text-white px-10 py-5 rounded-pill text-xl font-medium hover:bg-clean-blue/90 transition-all duration-300 hover:scale-[0.98] active:scale-95 shadow-card"
             >
@@ -92,7 +92,7 @@ export default function Footer() {
               <span>اتصل الآن</span>
             </a>
             <a
-              href="https://wa.me/966506271272"
+              href="https://wa.me/966538555718"
               onClick={() => trackSecondaryCTA()}
               target="_blank"
               rel="noopener noreferrer"
@@ -125,7 +125,7 @@ export default function Footer() {
               </p>
               <div className="flex items-center gap-3">
                 <a
-                  href="tel:+966506271272"
+                  href="tel:+966538555718"
                   onClick={() => trackPrimaryCTA()}
                   className="w-10 h-10 rounded-full bg-clean-blue/20 flex items-center justify-center hover:bg-clean-blue/40 transition-colors duration-300"
                   aria-label="اتصل بنا"
@@ -133,7 +133,7 @@ export default function Footer() {
                   <Phone className="w-4 h-4 text-clean-blue" />
                 </a>
                 <a
-                  href="https://wa.me/966506271272"
+                  href="https://wa.me/966538555718"
                   onClick={() => trackSecondaryCTA()}
                   target="_blank"
                   rel="noopener noreferrer"
@@ -187,7 +187,7 @@ export default function Footer() {
                 <li className="flex items-start gap-3">
                   <Phone className="w-5 h-5 text-clean-blue flex-shrink-0 mt-0.5" />
                   <div>
-                    <p className="text-white text-sm">050-140-1518</p>
+                    <p className="text-white text-sm">053-855-5718</p>
                     <p className="text-white/40 text-xs">اتصل الآن</p>
                   </div>
                 </li>
@@ -233,7 +233,7 @@ export default function Footer() {
       <div className="fixed bottom-6 left-6 z-50 flex flex-col gap-4">
         {/* Floating Phone button */}
         <a
-          href="tel:+966506271272"
+          href="tel:+966538555718"
           onClick={() => trackPrimaryCTA()}
           className="w-16 h-16 bg-clean-blue rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform duration-300 animate-bounce"
           aria-label="اتصل بنا الآن"
@@ -243,7 +243,7 @@ export default function Footer() {
 
         {/* Floating WhatsApp button */}
         <a
-          href="https://wa.me/966506271272"
+          href="https://wa.me/966538555718"
           onClick={() => trackSecondaryCTA()}
           target="_blank"
           rel="noopener noreferrer"

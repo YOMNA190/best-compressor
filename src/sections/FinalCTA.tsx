@@ -27,7 +27,7 @@ export default function FinalCTA() {
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-6 mb-12">
             <a
-              href="tel:+966506271272"
+              href="tel:+966538555718"
               onClick={() => trackPrimaryCTA()}
               className="flex items-center gap-3 px-10 py-5 bg-accent text-accent-foreground font-bold rounded-lg hover:shadow-2xl hover:shadow-accent/60 active:scale-95 transition-all duration-300 text-lg w-full sm:w-auto justify-center animate-ecoGlow"
             >
@@ -35,7 +35,7 @@ export default function FinalCTA() {
               <span>اتصل الآن</span>
             </a>
             <a
-              href="https://wa.me/966506271272"
+              href="https://wa.me/966538555718"
               onClick={() => trackSecondaryCTA()}
               target="_blank"
               rel="noopener noreferrer"
